@@ -1,6 +1,6 @@
 # Waypoint Yogamats
 
-This is a simple addon for [Waypoint Placeables]([url](https://github.com/WaypointRP/wp-placeables)) that lets the player place a yoga mat on the ground and interact with the yogamat to begin doing yoga.
+This is a simple addon for [Waypoint Placeables](https://github.com/WaypointRP/wp-placeables) that lets the player place a yoga mat on the ground and interact with the yogamat to begin doing yoga.
 
 ## Usage
 The player has two yoga options when interacting with the yoga mat:
