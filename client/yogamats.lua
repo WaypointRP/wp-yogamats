@@ -82,17 +82,17 @@ local function startYogaMatInteraction(yogaMatEntity)
         end
     end)
 
-    if Config.YogaMats.ShouldReduceStress or Config.YogaMats.ShouldIncreaseHealth then
+    if Config.ShouldReduceStress or Config.ShouldIncreaseHealth then
         -- Thread handles periodically applying the stress + health buffs
         CreateThread(function()
             while isDoingYoga do
-                Wait(Config.YogaMats.BuffInterval)
+                Wait(Config.BuffInterval)
 
-                if Config.YogaMats.ShouldReduceStress then
+                if Config.ShouldReduceStress then
                     SetPlayerStressMetaData(-2.0)
                 end
 
-                if Config.YogaMats.ShouldIncreaseHealth then
+                if Config.ShouldIncreaseHealth then
                     SetEntityHealth(ped, GetEntityHealth(ped) + 1)
                 end
             end
@@ -101,7 +101,7 @@ local function startYogaMatInteraction(yogaMatEntity)
 end
 
 -- Start doing yoga
-RegisterNetEvent('wp-placeables:client:useYogaMat', function(data)
+RegisterNetEvent('wp-yogamats:client:useYogaMat', function(data)
     local yogaMatEntity = data.entity
 
     Notify('Left/Right arrow keys to cycle poses. Up arrow to loop. Backspace to exit.', 'primary', 7500)
