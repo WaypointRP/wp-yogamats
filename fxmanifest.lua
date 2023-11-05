@@ -12,7 +12,7 @@ shared_script {
 }
 
 client_scripts {
-    'client/yogamats.lua',
+    'client.lua',
 }
 
 lua54 'yes'
