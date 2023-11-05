@@ -33,6 +33,13 @@ local yogaPoses = {
     "f_yogapose_c",
 }
 
+local function LoadAnimDict(dict)
+    while not HasAnimDictLoaded(dict) do
+        RequestAnimDict(dict)
+        Wait(10)
+    end
+end
+
 -- Thread to control actively doing yoga on the mat and the different poses
 local function startYogaMatInteraction(yogaMatEntity)
     local ped = PlayerPedId()
