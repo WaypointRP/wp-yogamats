@@ -5,6 +5,8 @@
 This is a simple addon for [Waypoint Placeables](https://github.com/WaypointRP/wp-placeables) that lets the player place a yoga mat on the ground and interact with the yogamat to begin doing yoga.
 You can optionally configure to apply buffs to the player while they are using a yogamat (ie: reduce stress, increase health, etc).
 
+[Preview](https://www.youtube.com/watch?v=oqgQ3HYw-N0)
+
 ## Usage
 The player has two yoga options when interacting with the yoga mat:
 - Begin a looped animation of doing yoga by pressing the `UP` arrow key
