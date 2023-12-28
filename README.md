@@ -52,3 +52,5 @@ The player can exit the yoga mat by pressing `BACKSPACE`.
 
 ## Credit
 Authored by: BackSH00TER - Waypoint Scripts
+
+@DonHulieo for providing insipiration and examples for structuring the framework.lua file.
