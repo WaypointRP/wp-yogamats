@@ -44,6 +44,7 @@ The player can exit the yoga mat by pressing `BACKSPACE`.
     {item = "yogamat_black", label = "Yoga mat (Black)", model = "prop_yoga_mat_02", isFrozen = true, customTargetOptions = yogaCustomTargetOptions},
     {item = "yogamat_red", label = "Yoga mat (Red)", model = "prop_yoga_mat_03", isFrozen = true, customTargetOptions = yogaCustomTargetOptions},
     ```
+> Note: If you are using `ox` for any of the Framework options you need to uncomment `@ox_lib/init.lua` in the fxmanifest.lua.
 
 ## Dependencies
 - [Waypoint Placeables](https://github.com/WaypointRP/wp-placeables)
