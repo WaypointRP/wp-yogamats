@@ -51,39 +51,39 @@ local function startYogaMatInteraction(yogaMatEntity)
     local yogaMatCoords = GetEntityCoords(yogaMatEntity)
     local yogaMatHeading = GetEntityHeading(yogaMatEntity)
     SetEntityCoords(ped, yogaMatCoords)
-    SetEntityHeading(ped, yogaMatHeading-90)
+    SetEntityHeading(ped, yogaMatHeading - 90)
 
     LoadAnimDict(animationDict)
 
     -- Put the player in the starting yoga pose
-    TaskPlayAnim(ped, animationDict, yogaPoses[1] , 8.0, -8.0, -1, 2, 0, false, false, false)
+    TaskPlayAnim(ped, animationDict, yogaPoses[1], 8.0, -8.0, -1, 2, 0, false, false, false)
 
-    -- Start a thread that handles listening for keypresses while the player is actively using the yoga mat 
+    -- Start a thread that handles listening for keypresses while the player is actively using the yoga mat
     -- Handles key presses for LEFT, RIGHT, UP arrows for cycling the emotes,
     -- BACKSPACE or walking away from the yoga mat will cancel out of the thread
     CreateThread(function()
-        local index = 2 -- Start at index 2 since player is already in the first pose
+        local index = 2                                                                           -- Start at index 2 since player is already in the first pose
         while isDoingYoga do
             if IsControlJustPressed(0, 194) or (#(GetEntityCoords(ped) - yogaMatCoords) > 5) then -- BACKSPACE or walk away to cancel
                 isDoingYoga = false
                 ClearPedTasks(ped)
             elseif IsControlJustPressed(0, 188) then -- UP arrow - begin yoga loop
                 ClearPedTasks(ped)
-                TaskStartScenarioInPlace(ped, 'WORLD_HUMAN_YOGA', 0, true)
+                TaskStartScenarioInPlace(ped, "WORLD_HUMAN_YOGA", 0, true)
             elseif IsControlJustPressed(0, 189) then -- LEFT arrow - cycle poses
-                if index <= 1 then 
+                if index <= 1 then
                     index = #yogaPoses
                 else
                     index = index - 1
                 end
-                TaskPlayAnim(ped, animationDict, yogaPoses[index] , 8.0, -8.0, -1, 2, 0, false, false, false)
+                TaskPlayAnim(ped, animationDict, yogaPoses[index], 8.0, -8.0, -1, 2, 0, false, false, false)
             elseif IsControlJustPressed(0, 190) then -- RIGHT arrow - cycle poses
                 if index >= #yogaPoses then
                     index = 1
                 else
                     index = index + 1
                 end
-                TaskPlayAnim(ped, animationDict, yogaPoses[index] , 8.0, -8.0, -1, 2, 0, false, false, false)
+                TaskPlayAnim(ped, animationDict, yogaPoses[index], 8.0, -8.0, -1, 2, 0, false, false, false)
             end
             Wait(1)
         end
@@ -108,10 +108,10 @@ local function startYogaMatInteraction(yogaMatEntity)
 end
 
 -- Start doing yoga
-RegisterNetEvent('wp-yogamats:client:useYogaMat', function(data)
+RegisterNetEvent("wp-yogamats:client:useYogaMat", function(data)
     local yogaMatEntity = data.entity
 
-    Notify('Left/Right arrow keys to cycle poses. Up arrow to loop. Backspace to exit.', 'primary', 7500)
+    Notify("Left/Right arrow keys to cycle poses. Up arrow to loop. Backspace to exit.", "primary", 7500)
 
     startYogaMatInteraction(yogaMatEntity)
 end)

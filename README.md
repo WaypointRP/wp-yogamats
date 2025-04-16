@@ -23,12 +23,42 @@ The player can exit the yoga mat by pressing `BACKSPACE`.
 
 3. Update the config variables to fit your framework and whether you want to apply buffs (`Config.ShouldReduceStress` and `Config.ShouldIncreaseHealth`)
 
-4. Add this to your items.lua:
-    ```lua
-    ["yogamat_blue"] = {["name"] = "yogamat_blue", ["label"] = "Yoga mat (Blue)", ["weight"] = 500, ["type"] = "item", ["image"] = "yogamat_blue.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true,["combinable"] = nil,   ["description"] = "Yoga is a great way to reduce stress"},
-    ["yogamat_black"]  = {["name"] = "yogamat_black", ["label"] = "Yoga mat (Black)", ["weight"] = 500, ["type"] = "item", ["image"] = "yogamat_black.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true,["combinable"] = nil,   ["description"] = "Yoga is a great way to reduce stress"},
-    ["yogamat_red"] = {["name"] = "yogamat_red", ["label"] = "Yoga mat (Red)", ["weight"] = 500, ["type"] = "item", ["image"] = "yogamat_red.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true,["combinable"] = nil,   ["description"] = "Yoga is a great way to reduce stress"},
-    ```
+4. Add the items to your inventory items.lua:
+    <details>
+    <summary> QB Inventory </summary>
+        ```lua
+        ["yogamat_blue"] = {["name"] = "yogamat_blue", ["label"] = "Yoga mat (Blue)", ["weight"] = 500, ["type"] = "item", ["image"] = "yogamat_blue.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true,["combinable"] = nil,   ["description"] = "Yoga is a great way to reduce stress"},
+        ["yogamat_black"]  = {["name"] = "yogamat_black", ["label"] = "Yoga mat (Black)", ["weight"] = 500, ["type"] = "item", ["image"] = "yogamat_black.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true,["combinable"] = nil,   ["description"] = "Yoga is a great way to reduce stress"},
+        ["yogamat_red"] = {["name"] = "yogamat_red", ["label"] = "Yoga mat (Red)", ["weight"] = 500, ["type"] = "item", ["image"] = "yogamat_red.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true,["combinable"] = nil,   ["description"] = "Yoga is a great way to reduce stress"},
+        ```
+    </details>
+
+    <details>
+    <summary> OX Inventory </summary>
+        ```lua
+        ["yogamat_blue"] = {
+            label = "Yoga mat (Blue)",
+            weight = 500,
+            stack = true,
+            close = true,
+            description = "Yoga is a great way to reduce stress"
+        },
+        ["yogamat_black"] = {
+            label = "Yoga mat (Black)",
+            weight = 500,
+            stack = true,
+            close = true,
+            description = "Yoga is a great way to reduce stress"
+        },
+        ["yogamat_red"] = {
+            label = "Yoga mat (Red)",
+            weight = 500,
+            stack = true,
+            close = true,
+            description = "Yoga is a great way to reduce stress"
+        },
+        ```
+    </details>
 
 5. In `wp-placeables/shared/config.lua`, search for `-- Uncomment this line if you are using wp-yogamats` and uncomment the following lines:
     ```lua
@@ -48,7 +78,7 @@ The player can exit the yoga mat by pressing `BACKSPACE`.
 
 ## Dependencies
 - [Waypoint Placeables](https://github.com/WaypointRP/wp-placeables)
-- QBCore / ESX / Or other frameworks (must implement framework specific solutions in framework.lua)
+- QBCore / Qbox / ESX / Or other frameworks (must implement framework specific solutions in framework.lua)
 - QBCore / ESX / OX for Notifications
 
 ## Credit
