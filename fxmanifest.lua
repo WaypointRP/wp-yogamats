@@ -15,4 +15,8 @@ client_scripts {
     "client.lua",
 }
 
+dependencies {
+    "wp-placeables",
+}
+
 lua54 "yes"
