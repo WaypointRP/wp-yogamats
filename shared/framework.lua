@@ -71,18 +71,18 @@ end
 --------------------- CLIENT FUNCTIONS ---------------------
 
 -- Gets the players current stress metadata and updates it based on the increment value
---- @param increment number The amount to increment the stress by (negative values will reduce stress)
-function SetPlayerStressMetaData(increment)
+--- @param amount number The amount of stress to reduce by
+function SetPlayerStressMetaData(amount)
     if Config.Framework == "esx" then
         -- No player metadata in ESX
     elseif Config.Framework == "qb" then
-        local newStressValue = Core.Functions.GetPlayerData().metadata["stress"] + increment
+        local newStressValue = Core.Functions.GetPlayerData().metadata["stress"] - amount
         if newStressValue < 0 then
             newStressValue = 0
         end
         TriggerServerEvent("QBCore:Server:SetMetaData", "stress", newStressValue)
     elseif Config.Framework == "qbx" then
-        TriggerServerEvent("hud:server:RelieveStress", increment)
+        TriggerServerEvent("hud:server:RelieveStress", amount)
     end
 end
 
