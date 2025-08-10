@@ -96,11 +96,11 @@ local function startYogaMatInteraction(yogaMatEntity)
                 Wait(Config.BuffInterval)
 
                 if Config.ShouldReduceStress then
-                    SetPlayerStressMetaData(-2.0)
+                    SetPlayerStressMetaData(Config.ReduceStressAmount)
                 end
 
                 if Config.ShouldIncreaseHealth then
-                    SetEntityHealth(ped, GetEntityHealth(ped) + 1)
+                    SetEntityHealth(ped, GetEntityHealth(ped) + Config.IncreaseHealthAmount)
                 end
             end
         end)
